@@ -163,6 +163,18 @@ class DecHexCommand(StringEncode):
         return hex(int(text))
 
 
+class UnicodeCssCommand(StringEncode):
+    def encode(self, text):
+        xmlEncode = XmlEntitizeCommand(self.view)
+        return xmlEncode.encode(text).replace('&#x', '\\').replace(';', '')
+
+
+class CssUnicodeCommand(StringEncode):
+    def encode(self, text):
+        htmlDecode = SafeHtmlDeentitizeCommand(self.view)
+        return htmlDecode.encode(text.replace('\\', '&#x') + ';');
+
+
 class UnicodeHexCommand(StringEncode):
     def encode(self, text):
         hex_text = u''

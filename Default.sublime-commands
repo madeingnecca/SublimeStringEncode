@@ -70,5 +70,13 @@
     {
         "caption": "StringEncode: Hexadecimal to Unicode",
         "command": "hex_unicode"
+    },
+    {
+        "caption": "StringEncode: Unicode to CSS",
+        "command": "unicode_css"
+    },
+    {
+        "caption": "StringEncode: CSS to Unicode",
+        "command": "css_unicode"
     }
 ]
